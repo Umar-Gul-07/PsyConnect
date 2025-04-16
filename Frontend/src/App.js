@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Blogs from "./Pages/Blogs";
 import Contact from "./Pages/Contact";
+import Services from "./Pages/Services";
 
 
 
@@ -23,25 +24,12 @@ function App() {
 
                     {/* Web Routes */}
                     <Route path='/' element={<Base><Home title={"Home"} /></Base>} />
-                    <Route path='*' element={<PageNotFound404 />} />
-
+                    <Route path="/services" element={<Base> <Services title={"Services"} /> </Base>} />
                     <Route path="/about-us" element={<Base> <About title={"About Us"} /> </Base>} />
                     <Route path="/blogs" element={<Base> <Blogs title={"Blogs"} /> </Base>} />
                     <Route path="/contact-us" element={<Base> <Contact title={"Contact Us"} /> </Base>} />
              
-
-
-
-
-
-
-
-
-                    {/* <Route path="/blogs" element={<Base> <Blogs title={"Blogs"}/> </Base>}/>
-                    <Route path="/blogs-details/:slug"
-                           element={<Base> <BlogsDetails title={"Blogs Details"}/> </Base>}/> */}
-
-
+                    <Route path='*' element={<PageNotFound404 />} />
 
                 </Routes>
 

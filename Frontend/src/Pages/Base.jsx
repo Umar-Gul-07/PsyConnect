@@ -6,9 +6,17 @@ function Base({ children }) {
 
     return (
         <>
-            <Header />
-            {children}
-            <Footer />
+            <div className='page'>
+                <Header />
+                <div className='site-main'>
+                    {children}
+                </div>
+                <Footer />
+                <a id="totop" href="#top" className="" style={{ display: "none" }}>
+                    <i className="fa fa-angle-up" />
+                </a>
+
+            </div>
         </>
     )
 }

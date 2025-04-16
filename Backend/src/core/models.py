@@ -4,25 +4,6 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-class Country(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    short_name = models.CharField(max_length=2, unique=True, help_text='ISO 3166-1 alpha-2')
-    language = models.CharField(max_length=3, default='en', help_text='ISO 639-1', null=True, blank=True)
-    currency = models.CharField(max_length=3, default='USD', help_text='ISO 4217', null=True, blank=True)
-    phone_code = models.CharField(max_length=4, default='+1', help_text='e.g. +1', null=True, blank=True)
-
-    is_services_available = models.BooleanField(default=True)
-    is_active = models.BooleanField(default=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['name']
-        verbose_name_plural = 'Countries'
-
-    def __str__(self):
-        return self.name
-
-
 class Application(models.Model):
     name = models.CharField(max_length=100, help_text='Application name', default='Zaala Society')
     short_name = models.CharField(max_length=10, help_text='Your application short name', default='ZS')
@@ -88,20 +69,9 @@ class Application(models.Model):
         super(Application, self).save(*args, **kwargs)
 
 class ContactMessage(models.Model):
-    """
-    Model to store contact form messages.
-    """
-    SUBJECT_CHOICES = [
-        ('general', 'General Inquiry'),
-        ('support', 'Customer Support'),
-        ('feedback', 'Feedback'),
-        ('order', 'Order Issue'),
-        ('other', 'Other'),
-    ]
-
     name = models.CharField(max_length=255)
     email = models.EmailField()
-    subject = models.CharField(max_length=50, choices=SUBJECT_CHOICES, default='general')
+    subject = models.CharField(max_length=50)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
