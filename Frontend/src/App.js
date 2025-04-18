@@ -7,6 +7,7 @@ import About from "./Pages/About";
 import Blogs from "./Pages/Blogs";
 import Contact from "./Pages/Contact";
 import Services from "./Pages/Services";
+import DoctorDetail from "./Pages/DoctorDetail";
 
 
 
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/about-us" element={<Base> <About title={"About Us"} /> </Base>} />
                     <Route path="/blogs" element={<Base> <Blogs title={"Blogs"} /> </Base>} />
                     <Route path="/contact-us" element={<Base> <Contact title={"Contact Us"} /> </Base>} />
+                    <Route path="/doc" element={<Base> <DoctorDetail title={"Contact Us"} /> </Base>} />
              
                     <Route path='*' element={<PageNotFound404 />} />
 
